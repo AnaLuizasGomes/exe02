@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Imc</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+    <div class="p01">
+    <H1>Trabalho IMC</H1>
+</div>
+<div class="p01">
+    <label for="p">Peso</label>
+    <input type="text" id="p">
+    <label for="a">Altura</label>
+    <input type="text" id="a">
+</div>
+<div class="p02">
+    <button onclick="calcular()">Calcular </button>
+    <br><br>
+    <p>IMC <span id="imc"></span> </p>
+    <br><br>
+    <p>situação <span id="sit"></span></p>
+</div>
+
+
+    <script>
+        let a= 0;
+        let p= 0;
+        let imc = 0;
+
+        function calcular(){
+            let a = parseFloat(document.getElementById("a").value);
+            let p = parseFloat(document.getElementById("p").value);
+            let imc = p / (a * a);
+            document.getElementById("imc").innerHTML = imc;
+            document.getElementById("imc").innerHTML = imc.toFixed(2);
+            let situacao = "";
+            let cor = "";
+            if (imc<=20){
+                situacao = "Abaixo do peso";
+                cor = "yellow";
+            } else if (imc <= 25){
+                situacao = "Normal";
+                cor = "green";
+            } else if (imc <= 30){
+                situacao = "Sobre peso";
+                cor = "yellow";
+            } else if (imc<=35){
+                situacao = "Obesidade 1";
+                cor = "orange";
+            } else if (imc<=40){
+                situacao = "Obesidade 2";
+                cor = "red";
+            } else if (imc > 40) {
+                situacao ="Obesidade 3"
+                cor = "red"
+            }
+
+            document.getElementById("sit").innerHTML = situacao;
+            document.getElementById("sit").style.color = cor;
+            
+        }
+    </script>
+</body>
+</html>
